@@ -1,0 +1,8 @@
+src/
+node_modules/
+dist/
+public/
+**/*.astro
+**/*.ts
+**/*.tsx
+Add .jekyllignore to fix Astro files
