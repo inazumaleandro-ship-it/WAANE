@@ -1,0 +1,43 @@
+---
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo 2 - WAANE</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #0a0a0a;
+      color: white;
+      font-family: system-ui, sans-serif;
+      overflow: hidden;
+    }
+    .placeholder {
+      height: calc(100vh - 70px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <Header title="Jogo 2" />
+
+  <div class="placeholder">
+    <h2>🎮 Jogo 2</h2>
+    <p>Esta é a página do teu segundo jogo.</p>
+    <p><strong>Quando exportares do Godot:</strong></p>
+    <p>Coloca os ficheiros em:</p>
+    <strong style="color:#00ff88;">public/jogos/jogo2/</strong>
+  </div>
+</body>
+</html>

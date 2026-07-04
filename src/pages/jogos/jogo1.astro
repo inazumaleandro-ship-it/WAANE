@@ -1,0 +1,38 @@
+---
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sopa de Letras - WAANE</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #0a0a0a;
+      color: white;
+      font-family: system-ui, sans-serif;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <Header title="Sopa de Letras" />
+
+  <!-- Caminho corrigido -->
+  <iframe> 
+    src="/jogos/WAANE2.html" 
+    allowfullscreen 
+    allow="fullscreen">
+  </iframe>
+</body>
+</html>

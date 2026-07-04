@@ -1,0 +1,33 @@
+---
+const { showBack = true, title = "WAANE" } = Astro.props;
+---
+
+<header style="background: #111; padding: 0.8rem 1.5rem; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid #222; min-height: 85px;">
+  {
+    showBack && (
+      <a href="/" 
+         style="color: #00ff88; font-size: 1.8rem; text-decoration: none; padding: px 12px; border-radius: 50%;">
+        ←
+      </a>
+    )
+  }
+
+  <!-- Logo maior sem aumentar o cabeçalho -->
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <img src="/logo.png" 
+         alt="Logo WAANE" 
+         style="height: 120px; width: auto;">   <!-- Aumentado -->
+
+    <h2 style="margin: 0; color: white; font-size: 2.1rem; font-weight: 700;">
+
+    </h2>
+  </div>
+
+  <!-- Menu de Navegação -->
+  <nav style="display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: center; margin-left: auto;">
+    <a href="/" style="color: white; text-decoration: none; font-weight: 500;">Início</a>
+    <a href="/jogo" style="color: white; text-decoration: none; font-weight: 500;">Jogar</a>
+    <a href="/notas" style="color: white; text-decoration: none; font-weight: 500;">Notas</a>
+    <a href="/sobre" style="color: white; text-decoration: none; font-weight: 500;">Sobre Nós</a>
+  </nav>
+</header>

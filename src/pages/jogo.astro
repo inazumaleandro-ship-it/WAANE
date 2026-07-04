@@ -1,0 +1,71 @@
+---
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogos - WAANE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      color: #111;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .games-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .game-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #00ff88;
+      color: black;
+      font-size: 1.35rem;
+      font-weight: bold;
+      padding: 1.4rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      width: 280px;
+      min-height: 80px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .game-btn:hover {
+      transform: scale(1.08);
+      background: #00cc6a;
+    }
+    .game-btn.blue { background: #00ccff; }
+    .game-btn.blue:hover { background: #0099cc; }
+    .game-btn.orange { background: #ff8800; }
+    .game-btn.orange:hover { background: #e67a00; }
+  </style>
+</head>
+<body>
+  <Header title="Jogos" />
+
+  <div class="container">
+    <h1>🎮 Escolhe o Jogo</h1>
+
+    <div class="games-grid">
+      <a href="/jogos/jogo1" class="game-btn">Sopa de Letras</a>
+      <a href="/jogos/jogo2" class="game-btn blue"> Jogo 2 - Nome do Jogo</a>
+      <a href="/jogos/jogo3" class="game-btn orange"> Jogo 3 - Nome do Jogo</a>
+    </div>
+  </div>
+</body>
+</html>

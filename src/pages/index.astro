@@ -1,0 +1,85 @@
+---
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WAANE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      color: #111;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    .logo {
+      width: 260px;
+      margin: 3rem auto 1rem;
+    }
+
+    .main-image {
+      width: 90%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      font-size: 3.8rem;
+      margin: 0.5rem 0;
+      color: #111;
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #00ff88;
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 1.1rem 3rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      margin: 1.5rem 0.5rem;
+      transition: all 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.08);
+      background: #00cc6a;
+    }
+  </style>
+</head>
+<body>
+  <Header title="WAANE" showBack={false} />
+  
+  <img src="/imagens/capa-jogo.jpg" alt="WAANE - Imagem do Jogo" class="main-image" />
+
+  <p class="subtitle">
+    Um jogo original desenvolvido por <strong>Leandro Gomes</strong> e <strong>Diogo Bernardo</strong>.<br><br>
+    
+    WAANE é um Website onde se encontram jogos criados por alunos da Escola Secundária de Camarate, nomeadamente (Leandro Gomes e Diogo Bernardo) 
+    no curso de Técnico de Gestão de Equipamentos Informáticos. 
+    O objetivo é proporcionar uma experiência divertida, acessível e inclusiva aos alunos com necessidades especiais.
+  </p>
+
+  <a href="/sobre" class="btn" style="background:#333; color:white;">Sobre Nós</a>
+  
+  <!-- Botão único para todos os jogos -->
+  <a href="/jogo" class="btn">Ver Todos os Jogos</a>
+
+</body>
+</html>

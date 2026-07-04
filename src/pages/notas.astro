@@ -1,0 +1,140 @@
+---
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notas - WAANE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      color: #111;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    textarea {
+      width: 100%;
+      height: 320px;
+      background: #e0e0e0;     /* Cinza claro */
+      color: #111;
+      border: 2px solid #00ff88;
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 1.1rem;
+    }
+    button {
+      background: #00ff88;
+      color: black;
+      border: none;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 9999px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background: #00cc6a;
+    }
+    .nota {
+      background: #f8f8f8;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 12px;
+      border-left: 6px solid #00ff88;
+      position: relative;
+      color: #111;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    h1, h2 {
+      color: #111;
+    }
+  </style>
+</head>
+<body>
+  <Header title="Minhas Notas" />
+
+  <div class="container">
+    <h1>As minhas notas e progressos</h1>
+
+    <textarea id="nota" placeholder="Escreve aqui o teu progresso..."></textarea>
+    <br><br>
+    <button id="btnSalvar"> Guardar nota</button>
+
+    <h2 style="margin-top: 30px;">Notas Guardadas</h2>
+    <div id="listaNotas"></div>
+  </div>
+
+  <script>
+    const textarea = document.getElementById('nota');
+    const btnSalvar = document.getElementById('btnSalvar');
+    const listaNotas = document.getElementById('listaNotas');
+
+    function carregarNotas() {
+      const notas = JSON.parse(localStorage.getItem('notasWAANE') || '[]');
+      if (notas.length === 0) {
+        listaNotas.innerHTML = '<p style="color:#666; text-align:center;">Ainda não tens notas guardadas.</p>';
+        return;
+      }
+
+      listaNotas.innerHTML = notas.map(n => `
+        <div class="nota">
+          <small>${n.data}</small><br><br>
+          ${n.texto.replace(/\n/g, '<br>')}
+          <button class="delete-btn" onclick="apagarNota(${n.id})">❌</button>
+        </div>
+      `).join('');
+    }
+
+    btnSalvar.addEventListener('click', () => {
+      const texto = textarea.value.trim();
+      if (!texto) {
+        alert("❌ Escreve alguma coisa antes de salvar!");
+        return;
+      }
+
+      let notas = JSON.parse(localStorage.getItem('notasWAANE') || '[]');
+      notas.unshift({
+        id: Date.now(),
+        texto: texto,
+        data: new Date().toLocaleString('pt-PT')
+      });
+
+      localStorage.setItem('notasWAANE', JSON.stringify(notas));
+      textarea.value = '';
+      carregarNotas();
+      alert("✅ Nota guardada com sucesso!");
+    });
+
+    window.apagarNota = function(id) {
+      if (confirm("Apagar esta nota?")) {
+        let notas = JSON.parse(localStorage.getItem('notasWAANE') || '[]');
+        notas = notas.filter(n => n.id !== id);
+        localStorage.setItem('notasWAANE', JSON.stringify(notas));
+        carregarNotas();
+      }
+    };
+
+    window.onload = carregarNotas;
+  </script>
+</body>
+</html>

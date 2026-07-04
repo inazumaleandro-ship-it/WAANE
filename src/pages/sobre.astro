@@ -1,0 +1,117 @@
+---
+import Header from '../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre Nós - WAANE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #ffffff;
+      color: #111;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .foto {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00ff88;
+      margin-bottom: 1rem;
+    }
+
+    .equipe {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem 0;
+    }
+
+    .membro {
+      text-align: center;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+
+    .section {
+      background: #f8f8f8;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin: 3rem 0;
+    }
+
+    /* Retângulo preto em volta de "Nossa História" */
+    .historia {
+      background: #111;
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin: 3rem 0;
+      border: 3px solid #00ff88;
+    }
+
+    p {
+      color: #333;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <Header title="Sobre Nós" />
+
+  <div class="container">
+    <h1>Sobre Nós</h1>
+    
+    <p style="text-align: center; font-size: 1.2rem; max-width: 700px; margin: 2rem auto;">
+      WAANE é um site original desenvolvido por Leandro Gomes e Diogo Bernardo, 
+      dois alunos da escola secundária de Camarate, no curso de Técnico de Gestão de Equipamentos Informáticos.
+    </p>
+
+    <!-- Imagens da Equipe -->
+    <div class="equipe">
+      <div class="membro">
+        <img src="/fotos/leandro.jpg" alt="Leandro Gomes" class="foto">
+        <h3>Leandro Gomes</h3>
+        <p>Programador & Designer</p>
+      </div>
+      
+      <div class="membro">
+        <img src="/fotos/diogo.jpg" alt="Diogo Bernardo" class="foto">
+        <h3>Diogo Bernardo</h3>
+        <p>Programador & Criativo</p>
+      </div>
+    </div>
+
+    <!-- Secção com retângulo preto -->
+    <div class="historia">
+      <p style="color: #ddd;">
+        O projeto WAANE nasceu como trabalho final de curso com o objetivo de criar um site onde vai estar um jogo criado por nós para dar apoio a alunos com certas necessidades 
+        desde a conceção até à publicação. Ao longo deste percurso aprendemos muito sobre desenvolvimento 
+        de jogos, design, programação e trabalho em equipa.
+      </p>
+    </div>
+
+    <!-- Mais imagens -->
+    <div style="text-align: center; margin: 3rem 0;">
+      <img src="/imagens/escola.jpg" alt="Escola" style="max-width: 100%; border-radius: 12px; margin: 1rem 0;">
+    </div>
+  </div>
+</body>
+</html>
